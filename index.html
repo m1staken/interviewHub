@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <!-- ========== НАВИГАЦИЯ ========== -->
   <nav class="navbar">
     <a href="#" class="logo">Interview<span>Hub</span></a>
     <div class="nav-links">
@@ -22,9 +21,7 @@
     </div>
   </nav>
 
-  <!-- ========== ГЛАВНЫЙ ЭКРАН ========== -->
   <section class="hero">
-    <div class="hero-badge" id="heroBadge">🚀 Платформа для мок-интервью</div>
     <h1 class="hero-title" id="heroTitle">Подготовься к<br/><span class="gradient-text">интервью мечты</span></h1>
     <p class="hero-sub" id="heroSub">Найди опытного интервьюера из индустрии, пройди практику и получи работу.</p>
     <div class="hero-actions">
@@ -40,7 +37,6 @@
     </div>
   </section>
 
-  <!-- ========== КАК ЭТО РАБОТАЕТ ========== -->
   <section class="section" id="how-it-works">
     <div class="container">
       <p class="section-label">Процесс</p>
@@ -65,7 +61,6 @@
     </div>
   </section>
 
-  <!-- ========== ПОИСК ИНТЕРВЬЮЕРОВ ========== -->
   <section class="section bg-subtle" id="interviewers">
     <div class="container">
       <p class="section-label">Поиск</p>
@@ -78,7 +73,7 @@
         <button class="search-clear hidden" id="searchClear">✕</button>
       </div>
 
-      <!-- Фильтры и сортировка -->
+
       <div class="filters-row">
         <div class="spec-filters" id="specFilters">
           <button class="filter-chip active" data-spec="all">Все</button>
@@ -100,7 +95,7 @@
         </div>
       </div>
 
-      <!-- Счётчик результатов -->
+
       <div class="results-meta" id="resultsMeta">
         <span id="resultsCount"></span>
         <button class="reset-filters hidden" id="resetFilters">Сбросить фильтры</button>
@@ -120,7 +115,6 @@
   </section>
 
 
-  <!-- ========== ЗАЯВКИ ИНТЕРВЬЮЕРА ========== -->
   <section class="section" id="applicationsSection" style="display:none;">
     <div class="container">
       <div class="apps-header">
@@ -139,7 +133,6 @@
     </div>
   </section>
 
-  <!-- ========== МОИ ВСТРЕЧИ (кандидат) ========== -->
   <section class="section" id="myMeetingsSection" style="display:none;">
     <div class="container">
       <p class="section-label">Мои заявки</p>
@@ -148,7 +141,6 @@
     </div>
   </section>
 
-  <!-- ========== ЧАТ ========== -->
   <div class="chat-backdrop" id="chatBackdrop"></div>
   <div class="chat-window" id="chatWindow">
     <div class="chat-header">
@@ -168,7 +160,6 @@
     </div>
   </div>
 
-  <!-- ========== МОДАЛЬНОЕ ОКНО ========== -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" id="modal">
       <button class="modal-close" id="modalClose">✕</button>
@@ -179,19 +170,18 @@
         <p>Выбери свою роль на платформе</p>
         <div class="role-cards">
           <div class="role-card" id="roleCandidate" data-role="candidate">
-            <div class="role-icon">🎯</div>
+            <div class="role-icon"></div>
             <h3>Кандидат</h3>
             <p>Ищу интервьюера для практики</p>
           </div>
           <div class="role-card" id="roleInterviewer" data-role="interviewer">
-            <div class="role-icon">🧑‍💼</div>
+            <div class="role-icon"</div>
             <h3>Интервьюер</h3>
             <p>Провожу мок-интервью</p>
           </div>
         </div>
       </div>
 
-      <!-- Форма регистрации -->
       <div class="modal-screen hidden" id="screenRegister">
         <button class="back-btn" id="backToRole">← Назад</button>
         <h2>Регистрация</h2>
@@ -227,7 +217,6 @@
         <p class="form-footer">Уже есть аккаунт? <a href="#" id="goToLogin">Войти</a></p>
       </div>
 
-      <!-- Форма входа -->
       <div class="modal-screen hidden" id="screenLogin">
         <h2>Вход</h2>
         <p>Рады видеть тебя снова</p>
@@ -243,9 +232,8 @@
         <p class="form-footer">Нет аккаунта? <a href="#" id="goToRegister">Зарегистрироваться</a></p>
       </div>
 
-      <!-- Успех -->
       <div class="modal-screen hidden" id="screenSuccess">
-        <div class="success-icon">🎉</div>
+        <div class="success-icon"></div>
         <h2 id="successTitle">Готово!</h2>
         <p id="successText"></p>
         <button class="btn-primary btn-full" id="successClose">Перейти в профиль</button>
@@ -253,7 +241,6 @@
     </div>
   </div>
 
-  <!-- ========== ПОДВАЛ ========== -->
   <footer class="footer">
     <div class="container footer-inner">
       <span class="logo">Interview<span>Hub</span></span>
@@ -262,7 +249,6 @@
   </footer>
 
 
-  <!-- ========== SIDEBAR ПРОФИЛЯ ========== -->
   <div class="profile-backdrop" id="profileBackdrop"></div>
   <aside class="profile-sidebar" id="profileSidebar">
     <div class="sidebar-header">
@@ -275,7 +261,6 @@
   </aside>
 
 
-  <!-- ========== МОДАЛКА ОТЗЫВА ========== -->
   <div class="modal-overlay" id="reviewOverlay">
     <div class="modal" id="reviewModal" style="max-width:420px;">
       <button class="modal-close" id="reviewModalClose">✕</button>
@@ -300,7 +285,6 @@
   </div>
 
 
-  <!-- ========== ПУБЛИЧНЫЙ ПРОФИЛЬ ========== -->
   <div class="modal-overlay" id="pubProfileOverlay">
     <div class="modal pub-profile-modal">
       <button class="modal-close" onclick="closePublicProfile()">✕</button>
