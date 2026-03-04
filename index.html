@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InterviewHub — Найди своего интервьюера</title>
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== НАВИГАЦИЯ ========== -->
+  <nav class="navbar">
+    <a href="#" class="logo">Interview<span>Hub</span></a>
+    <div class="nav-links">
+      <a href="#how-it-works">Как это работает</a>
+      <a href="#interviewers">Интервьюеры</a>
+    </div>
+    <div class="nav-auth">
+      <button class="btn-ghost" id="loginBtn">Войти</button>
+      <button class="btn-primary" id="registerBtn">Регистрация</button>
+    </div>
+  </nav>
+
+  <!-- ========== ГЛАВНЫЙ ЭКРАН ========== -->
+  <section class="hero">
+    <div class="hero-badge" id="heroBadge">🚀 Платформа для мок-интервью</div>
+    <h1 class="hero-title" id="heroTitle">Подготовься к<br/><span class="gradient-text">интервью мечты</span></h1>
+    <p class="hero-sub" id="heroSub">Найди опытного интервьюера из индустрии, пройди практику и получи работу.</p>
+    <div class="hero-actions">
+      <button class="btn-primary btn-lg" id="heroCandidateBtn">Я кандидат</button>
+      <button class="btn-outline btn-lg" id="heroInterviewerBtn">Я интервьюер</button>
+    </div>
+    <div class="hero-stats" id="heroStats">
+      <div class="stat"><strong>120+</strong><span>Интервьюеров</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><strong>840+</strong><span>Сессий</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><strong>94%</strong><span>Довольных</span></div>
+    </div>
+  </section>
+
+  <!-- ========== КАК ЭТО РАБОТАЕТ ========== -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <p class="section-label">Процесс</p>
+      <h2 class="section-title" id="howTitle">Как это работает</h2>
+      <div class="steps-grid" id="stepsGrid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>Зарегистрируйся</h3>
+          <p>Создай аккаунт как кандидат или интервьюер. Заполни профиль: опыт, навыки, специализация.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>Найди интервьюера</h3>
+          <p>Кандидаты просматривают анкеты интервьюеров, фильтруют по стеку и уровню.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>Проведи интервью</h3>
+          <p>Запись на сессию, видеозвонок, фидбэк — всё в одном месте.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ПОИСК ИНТЕРВЬЮЕРОВ ========== -->
+  <section class="section bg-subtle" id="interviewers">
+    <div class="container">
+      <p class="section-label">Поиск</p>
+      <h2 class="section-title">Найди интервьюера</h2>
+
+      <!-- Строка поиска -->
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Поиск по имени, специализации или навыку..." />
+        <button class="search-clear hidden" id="searchClear">✕</button>
+      </div>
+
+      <!-- Фильтры и сортировка -->
+      <div class="filters-row">
+        <div class="spec-filters" id="specFilters">
+          <button class="filter-chip active" data-spec="all">Все</button>
+          <button class="filter-chip" data-spec="frontend">Frontend</button>
+          <button class="filter-chip" data-spec="backend">Backend</button>
+          <button class="filter-chip" data-spec="ml">ML / AI</button>
+          <button class="filter-chip" data-spec="mobile">Mobile</button>
+          <button class="filter-chip" data-spec="devops">DevOps</button>
+          <button class="filter-chip" data-spec="product">Product</button>
+        </div>
+        <div class="sort-control">
+          <label for="sortSelect">Сортировать:</label>
+          <select id="sortSelect">
+            <option value="default">По умолчанию</option>
+            <option value="exp_desc">Опыт: много → мало</option>
+            <option value="exp_asc">Опыт: мало → много</option>
+            <option value="name_asc">Имя: А → Я</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Счётчик результатов -->
+      <div class="results-meta" id="resultsMeta">
+        <span id="resultsCount"></span>
+        <button class="reset-filters hidden" id="resetFilters">Сбросить фильтры</button>
+      </div>
+
+      <!-- Сетка карточек -->
+      <div class="cards-grid" id="interviewersList"></div>
+
+      <!-- Пустое состояние -->
+      <div class="empty-state hidden" id="emptyState">
+        <div class="empty-icon">🔎</div>
+        <h3>Ничего не найдено</h3>
+        <p>Попробуй изменить запрос или сбросить фильтры</p>
+        <button class="btn-outline" id="emptyReset">Сбросить всё</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== ЗАЯВКИ ИНТЕРВЬЮЕРА ========== -->
+  <section class="section" id="applicationsSection" style="display:none;">
+    <div class="container">
+      <div class="apps-header">
+        <div>
+          <p class="section-label">Входящие</p>
+          <h2 class="section-title" style="margin-bottom:0;">Заявки на интервью</h2>
+        </div>
+        <div class="apps-badge" id="appsBadge"></div>
+      </div>
+      <div class="apps-tabs">
+        <button class="apps-tab active" data-tab="pending">На рассмотрении</button>
+        <button class="apps-tab" data-tab="accepted">Принятые</button>
+        <button class="apps-tab" data-tab="rejected">Отклонённые</button>
+      </div>
+      <div class="apps-list" id="appsList"></div>
+    </div>
+  </section>
+
+  <!-- ========== МОИ ВСТРЕЧИ (кандидат) ========== -->
+  <section class="section" id="myMeetingsSection" style="display:none;">
+    <div class="container">
+      <p class="section-label">Мои заявки</p>
+      <h2 class="section-title">Встречи</h2>
+      <div class="apps-list" id="myMeetingsList"></div>
+    </div>
+  </section>
+
+  <!-- ========== ЧАТ ========== -->
+  <div class="chat-backdrop" id="chatBackdrop"></div>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar" id="chatAvatar">💬</div>
+        <div>
+          <div class="chat-name" id="chatName">Чат</div>
+          <div class="chat-sub" id="chatSub"></div>
+        </div>
+      </div>
+      <button class="chat-close" id="chatClose">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input-row">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Написать сообщение..." />
+      <button class="chat-send" id="chatSend">➤</button>
+    </div>
+  </div>
+
+  <!-- ========== МОДАЛЬНОЕ ОКНО ========== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+
+      <!-- Выбор роли -->
+      <div class="modal-screen" id="screenRole">
+        <h2>Добро пожаловать!</h2>
+        <p>Выбери свою роль на платформе</p>
+        <div class="role-cards">
+          <div class="role-card" id="roleCandidate" data-role="candidate">
+            <div class="role-icon">🎯</div>
+            <h3>Кандидат</h3>
+            <p>Ищу интервьюера для практики</p>
+          </div>
+          <div class="role-card" id="roleInterviewer" data-role="interviewer">
+            <div class="role-icon">🧑‍💼</div>
+            <h3>Интервьюер</h3>
+            <p>Провожу мок-интервью</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Форма регистрации -->
+      <div class="modal-screen hidden" id="screenRegister">
+        <button class="back-btn" id="backToRole">← Назад</button>
+        <h2>Регистрация</h2>
+        <p id="registerRoleLabel"></p>
+        <div class="form-group">
+          <label>Имя и фамилия</label>
+          <input type="text" id="regName" placeholder="Иван Иванов" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="regEmail" placeholder="ivan@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Пароль</label>
+          <input type="password" id="regPassword" placeholder="Минимум 8 символов" />
+        </div>
+        <!-- Поля только для интервьюера -->
+        <div id="interviewerFields" class="hidden">
+          <div class="form-group">
+            <label>Специализация</label>
+            <input type="text" id="regSpec" placeholder="Frontend, Backend, ML..." />
+          </div>
+          <div class="form-group">
+            <label>Опыт (лет)</label>
+            <input type="number" id="regExp" placeholder="3" min="0" max="40" />
+          </div>
+          <div class="form-group">
+            <label>О себе</label>
+            <textarea id="regBio" placeholder="Расскажи о своём опыте и чём ты можешь помочь кандидатам..."></textarea>
+          </div>
+        </div>
+        <button class="btn-primary btn-full" id="submitRegister">Создать аккаунт</button>
+        <p class="form-footer">Уже есть аккаунт? <a href="#" id="goToLogin">Войти</a></p>
+      </div>
+
+      <!-- Форма входа -->
+      <div class="modal-screen hidden" id="screenLogin">
+        <h2>Вход</h2>
+        <p>Рады видеть тебя снова</p>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="ivan@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Пароль</label>
+          <input type="password" id="loginPassword" placeholder="Твой пароль" />
+        </div>
+        <button class="btn-primary btn-full" id="submitLogin">Войти</button>
+        <p class="form-footer">Нет аккаунта? <a href="#" id="goToRegister">Зарегистрироваться</a></p>
+      </div>
+
+      <!-- Успех -->
+      <div class="modal-screen hidden" id="screenSuccess">
+        <div class="success-icon">🎉</div>
+        <h2 id="successTitle">Готово!</h2>
+        <p id="successText"></p>
+        <button class="btn-primary btn-full" id="successClose">Перейти в профиль</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ПОДВАЛ ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">Interview<span>Hub</span></span>
+      <p>© 2025 InterviewHub. Дипломный проект.</p>
+    </div>
+  </footer>
+
+
+  <!-- ========== SIDEBAR ПРОФИЛЯ ========== -->
+  <div class="profile-backdrop" id="profileBackdrop"></div>
+  <aside class="profile-sidebar" id="profileSidebar">
+    <div class="sidebar-header">
+      <h2 class="sidebar-title">Мой профиль</h2>
+      <button class="sidebar-close" id="sidebarClose">✕</button>
+    </div>
+    <div class="sidebar-body" id="sidebarBody">
+      <!-- Контент генерируется через JS -->
+    </div>
+  </aside>
+
+
+  <!-- ========== МОДАЛКА ОТЗЫВА ========== -->
+  <div class="modal-overlay" id="reviewOverlay">
+    <div class="modal" id="reviewModal" style="max-width:420px;">
+      <button class="modal-close" id="reviewModalClose">✕</button>
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:36px;margin-bottom:8px;">★</div>
+        <h2 style="font-family:var(--font-head);font-size:22px;font-weight:700;">Оставить отзыв</h2>
+        <p id="reviewAboutName" style="color:var(--text-muted);font-size:14px;margin-top:4px;"></p>
+      </div>
+      <div class="star-rating" id="starRating">
+        <button class="star-btn" data-val="1">★</button>
+        <button class="star-btn" data-val="2">★</button>
+        <button class="star-btn" data-val="3">★</button>
+        <button class="star-btn" data-val="4">★</button>
+        <button class="star-btn" data-val="5">★</button>
+      </div>
+      <div class="form-group" style="margin-top:16px;">
+        <label>Комментарий</label>
+        <textarea id="reviewText" placeholder="Расскажи как прошло интервью..." style="min-height:100px;"></textarea>
+      </div>
+      <button class="btn-primary btn-full" id="submitReview">Отправить отзыв</button>
+    </div>
+  </div>
+
+
+  <!-- ========== ПУБЛИЧНЫЙ ПРОФИЛЬ ========== -->
+  <div class="modal-overlay" id="pubProfileOverlay">
+    <div class="modal pub-profile-modal">
+      <button class="modal-close" onclick="closePublicProfile()">✕</button>
+      <div id="pubProfileBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
