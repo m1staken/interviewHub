@@ -2,6 +2,7 @@
    InterviewHub — main.css
    ============================================= */
 
+/* ---------- СБРОС И ПЕРЕМЕННЫЕ ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -30,6 +31,7 @@ body {
   overflow-x: hidden;
 }
 
+/* ---------- УТИЛИТЫ ---------- */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 .hidden { display: none !important; }
 
@@ -40,6 +42,7 @@ body {
   background-clip: text;
 }
 
+/* ---------- КНОПКИ ---------- */
 .btn-primary {
   background: var(--accent);
   color: #fff;
@@ -84,6 +87,7 @@ body {
 .btn-lg { padding: 15px 36px; font-size: 16px; border-radius: 12px; }
 .btn-full { width: 100%; margin-top: 8px; padding: 14px; font-size: 16px; }
 
+/* ---------- НАВИГАЦИЯ ---------- */
 .navbar {
   position: sticky;
   top: 0;
@@ -119,6 +123,7 @@ body {
 
 .nav-auth { display: flex; align-items: center; gap: 8px; }
 
+/* ---------- HERO ---------- */
 .hero {
   min-height: calc(100vh - 66px);
   display: flex;
@@ -131,6 +136,7 @@ body {
   overflow: hidden;
 }
 
+/* Декоративный фон */
 .hero::before {
   content: '';
   position: absolute;
@@ -217,6 +223,7 @@ body {
   margin-bottom: 56px;
 }
 
+/* ---------- ШАГИ ---------- */
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -246,6 +253,7 @@ body {
 .step-card h3 { font-family: var(--font-head); font-size: 20px; margin-bottom: 10px; }
 .step-card p { color: var(--text-muted); font-size: 15px; }
 
+/* ---------- КАРТОЧКИ ИНТЕРВЬЮЕРОВ ---------- */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -315,6 +323,7 @@ body {
 }
 .btn-card:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+/* ---------- МОДАЛЬНОЕ ОКНО ---------- */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -425,6 +434,7 @@ body {
 #screenSuccess h2 { text-align: center; }
 #screenSuccess p { text-align: center; color: var(--text-muted); margin-bottom: 28px; }
 
+/* ---------- ТОСТ-УВЕДОМЛЕНИЕ ---------- */
 .toast {
   position: fixed;
   bottom: 28px;
@@ -446,6 +456,7 @@ body {
 .toast.error { border-color: #f87171; color: #fca5a5; }
 .toast.success { border-color: #34d399; color: #6ee7b7; }
 
+/* ---------- ПОДВАЛ ---------- */
 .footer {
   border-top: 1px solid var(--border);
   padding: 28px 48px;
@@ -457,11 +468,13 @@ body {
 }
 .footer p { font-size: 13px; color: var(--text-muted); }
 
+/* ---------- АНИМАЦИИ ---------- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ---------- АДАПТИВ ---------- */
 @media (max-width: 768px) {
   .navbar { padding: 14px 20px; }
   .nav-links { display: none; }
@@ -513,6 +526,7 @@ body {
 }
 .search-clear:hover { background: var(--border); color: var(--text); }
 
+/* ---------- ФИЛЬТРЫ ---------- */
 .filters-row {
   display: flex;
   align-items: center;
@@ -548,6 +562,7 @@ body {
   color: #fff;
 }
 
+/* ---------- СОРТИРОВКА ---------- */
 .sort-control {
   display: flex;
   align-items: center;
@@ -578,6 +593,7 @@ body {
 }
 .sort-control select:focus { border-color: var(--accent); }
 
+/* ---------- МЕТА РЕЗУЛЬТАТОВ ---------- */
 .results-meta {
   display: flex;
   align-items: center;
@@ -605,6 +621,7 @@ body {
 }
 .reset-filters:hover { opacity: .7; }
 
+/* ---------- ПУСТОЕ СОСТОЯНИЕ ---------- */
 .empty-state {
   text-align: center;
   padding: 80px 24px;
@@ -617,12 +634,17 @@ body {
 }
 .empty-state p { color: var(--text-muted); margin-bottom: 28px; }
 
+/* ---------- ПОДСВЕТКА совпадения ---------- */
 .highlight {
   background: rgba(79,142,247,.25);
   border-radius: 3px;
   padding: 0 2px;
   color: var(--accent);
 }
+
+/* =============================================
+   SIDEBAR ПРОФИЛЯ
+   ============================================= */
 
 .profile-backdrop {
   position: fixed;
@@ -653,6 +675,7 @@ body {
 }
 .profile-sidebar.open { transform: translateX(0); }
 
+/* Шапка сайдбара */
 .sidebar-header {
   display: flex;
   align-items: center;
@@ -691,6 +714,7 @@ body {
 .sidebar-body::-webkit-scrollbar-track { background: transparent; }
 .sidebar-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
+/* Блок-карточка внутри сайдбара */
 .sb-card {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -707,6 +731,7 @@ body {
   margin-bottom: 16px;
 }
 
+/* Аватар и имя */
 .sb-identity {
   display: flex;
   align-items: center;
@@ -794,6 +819,7 @@ body {
 .sb-iv-status.done     { background: rgba(52,211,153,.12); color: #34d399; }
 .sb-iv-status.upcoming { background: rgba(79,142,247,.12); color: var(--accent); }
 
+/* Отзывы */
 .sb-reviews { display: flex; flex-direction: column; gap: 12px; }
 .sb-review {
   padding: 14px;
@@ -824,6 +850,7 @@ body {
 }
 .sb-save-btn:hover { background: #3d7ef5; }
 
+/* Пустой список */
 .sb-empty {
   text-align: center;
   padding: 20px 0 4px;
@@ -832,6 +859,7 @@ body {
 }
 .sb-empty-icon { font-size: 28px; margin-bottom: 6px; }
 
+/* Навбар — кнопка профиля */
 .btn-profile {
   display: flex;
   align-items: center;
@@ -859,6 +887,10 @@ body {
   .profile-sidebar { width: 100vw; }
   .sb-stats { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* =============================================
+   ЗАЯВКИ — APPLICATIONS
+   ============================================= */
 
 .apps-header {
   display: flex;
@@ -1009,6 +1041,10 @@ body {
 .apps-empty-icon { font-size: 44px; margin-bottom: 12px; }
 .apps-empty h3 { font-family: var(--font-head); font-size: 18px; margin-bottom: 6px; color: var(--text); }
 
+/* =============================================
+   ЧАТ
+   ============================================= */
+
 .chat-backdrop {
   position: fixed;
   inset: 0;
@@ -1134,6 +1170,7 @@ body {
   margin: 4px 0;
 }
 
+/* Ввод */
 .chat-input-row {
   display: flex;
   align-items: center;
@@ -1172,6 +1209,7 @@ body {
 }
 .chat-send:hover { background: #3d7ef5; transform: scale(1.05); }
 
+/* Нотификация в навбаре */
 .nav-notif {
   position: relative;
 }
@@ -1190,6 +1228,9 @@ body {
   .app-msg { max-width: 100%; }
 }
 
+/* =============================================
+   ПЕРЕКЛЮЧЕНИЕ РОЛИ + ДИРЕКТ-ЧАТ
+   ============================================= */
 
 /* Кнопка смены роли в сайдбаре */
 .switch-role-btn {
@@ -1267,6 +1308,9 @@ body {
   background: rgba(248,113,113,.08);
 }
 
+/* =============================================
+   ТЕГ-ИНПУТ ДЛЯ СПЕЦИАЛИЗАЦИЙ
+   ============================================= */
 .tags-input-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -1371,6 +1415,9 @@ body {
   letter-spacing: .5px;
 }
 
+/* =============================================
+   КНОПКИ ЗАВЕРШЕНИЯ И ОТЗЫВА В САЙДБАРЕ
+   ============================================= */
 .sb-complete-btn {
   background: rgba(52,211,153,.1);
   border: 1px solid rgba(52,211,153,.3);
@@ -1406,6 +1453,9 @@ body {
 .sb-iv-icon.done   { color: #34d399; }
 .sb-iv-icon.upcoming { color: var(--accent); }
 
+/* =============================================
+   МОДАЛКА ОТЗЫВА — ЗВЁЗДЫ
+   ============================================= */
 .star-rating {
   display: flex;
   justify-content: center;
@@ -1430,6 +1480,9 @@ body {
   border: 1px solid rgba(52,211,153,.3);
 }
 
+/* =============================================
+   РЕЙТИНГ НА КАРТОЧКЕ
+   ============================================= */
 .card-rating {
   font-size: 13px;
   font-weight: 600;
@@ -1453,6 +1506,9 @@ body {
   border-color: var(--border);
 }
 
+/* =============================================
+   ПУБЛИЧНЫЙ ПРОФИЛЬ
+   ============================================= */
 .pub-profile-modal {
   max-width: 480px;
   max-height: 80vh;
