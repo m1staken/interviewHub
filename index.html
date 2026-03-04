@@ -9,6 +9,7 @@
 </head>
 <body>
 
+  <!-- ========== НАВИГАЦИЯ ========== -->
   <nav class="navbar">
     <a href="#" class="logo">Interview<span>Hub</span></a>
     <div class="nav-links">
@@ -21,14 +22,21 @@
     </div>
   </nav>
 
+  <!-- ========== ГЛАВНЫЙ ЭКРАН ========== -->
   <section class="hero">
-    <h1 class="hero-title" id="heroTitle">Подготовься к<br/><span class="gradient-text">интервью мечты</span></h1>
-    <p class="hero-sub" id="heroSub">Найди опытного интервьюера из индустрии, пройди практику и получи работу.</p>
+    <div class="hero-badge">🚀 Платформа для мок-интервью</div>
+    <h1 class="hero-title">
+      Подготовься к<br/>
+      <span class="gradient-text">интервью мечты</span>
+    </h1>
+    <p class="hero-sub">
+      Найди опытного интервьюера из индустрии, пройди практику и получи работу.
+    </p>
     <div class="hero-actions">
       <button class="btn-primary btn-lg" id="heroCandidateBtn">Я кандидат</button>
       <button class="btn-outline btn-lg" id="heroInterviewerBtn">Я интервьюер</button>
     </div>
-    <div class="hero-stats" id="heroStats">
+    <div class="hero-stats">
       <div class="stat"><strong>120+</strong><span>Интервьюеров</span></div>
       <div class="stat-divider"></div>
       <div class="stat"><strong>840+</strong><span>Сессий</span></div>
@@ -37,11 +45,12 @@
     </div>
   </section>
 
+  <!-- ========== КАК ЭТО РАБОТАЕТ ========== -->
   <section class="section" id="how-it-works">
     <div class="container">
       <p class="section-label">Процесс</p>
-      <h2 class="section-title" id="howTitle">Как это работает</h2>
-      <div class="steps-grid" id="stepsGrid">
+      <h2 class="section-title">Как это работает</h2>
+      <div class="steps-grid">
         <div class="step-card">
           <div class="step-num">01</div>
           <h3>Зарегистрируйся</h3>
@@ -61,6 +70,7 @@
     </div>
   </section>
 
+  <!-- ========== ПОИСК ИНТЕРВЬЮЕРОВ ========== -->
   <section class="section bg-subtle" id="interviewers">
     <div class="container">
       <p class="section-label">Поиск</p>
@@ -73,7 +83,7 @@
         <button class="search-clear hidden" id="searchClear">✕</button>
       </div>
 
-
+      <!-- Фильтры и сортировка -->
       <div class="filters-row">
         <div class="spec-filters" id="specFilters">
           <button class="filter-chip active" data-spec="all">Все</button>
@@ -95,7 +105,7 @@
         </div>
       </div>
 
-
+      <!-- Счётчик результатов -->
       <div class="results-meta" id="resultsMeta">
         <span id="resultsCount"></span>
         <button class="reset-filters hidden" id="resetFilters">Сбросить фильтры</button>
@@ -115,6 +125,7 @@
   </section>
 
 
+  <!-- ========== ЗАЯВКИ ИНТЕРВЬЮЕРА ========== -->
   <section class="section" id="applicationsSection" style="display:none;">
     <div class="container">
       <div class="apps-header">
@@ -133,6 +144,7 @@
     </div>
   </section>
 
+  <!-- ========== МОИ ВСТРЕЧИ (кандидат) ========== -->
   <section class="section" id="myMeetingsSection" style="display:none;">
     <div class="container">
       <p class="section-label">Мои заявки</p>
@@ -141,6 +153,7 @@
     </div>
   </section>
 
+  <!-- ========== ЧАТ ========== -->
   <div class="chat-backdrop" id="chatBackdrop"></div>
   <div class="chat-window" id="chatWindow">
     <div class="chat-header">
@@ -160,6 +173,7 @@
     </div>
   </div>
 
+  <!-- ========== МОДАЛЬНОЕ ОКНО ========== -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" id="modal">
       <button class="modal-close" id="modalClose">✕</button>
@@ -170,18 +184,19 @@
         <p>Выбери свою роль на платформе</p>
         <div class="role-cards">
           <div class="role-card" id="roleCandidate" data-role="candidate">
-            <div class="role-icon"></div>
+            <div class="role-icon">🎯</div>
             <h3>Кандидат</h3>
             <p>Ищу интервьюера для практики</p>
           </div>
           <div class="role-card" id="roleInterviewer" data-role="interviewer">
-            <div class="role-icon"</div>
+            <div class="role-icon">🧑‍💼</div>
             <h3>Интервьюер</h3>
             <p>Провожу мок-интервью</p>
           </div>
         </div>
       </div>
 
+      <!-- Форма регистрации -->
       <div class="modal-screen hidden" id="screenRegister">
         <button class="back-btn" id="backToRole">← Назад</button>
         <h2>Регистрация</h2>
@@ -217,6 +232,7 @@
         <p class="form-footer">Уже есть аккаунт? <a href="#" id="goToLogin">Войти</a></p>
       </div>
 
+      <!-- Форма входа -->
       <div class="modal-screen hidden" id="screenLogin">
         <h2>Вход</h2>
         <p>Рады видеть тебя снова</p>
@@ -232,8 +248,9 @@
         <p class="form-footer">Нет аккаунта? <a href="#" id="goToRegister">Зарегистрироваться</a></p>
       </div>
 
+      <!-- Успех -->
       <div class="modal-screen hidden" id="screenSuccess">
-        <div class="success-icon"></div>
+        <div class="success-icon">🎉</div>
         <h2 id="successTitle">Готово!</h2>
         <p id="successText"></p>
         <button class="btn-primary btn-full" id="successClose">Перейти в профиль</button>
@@ -241,6 +258,7 @@
     </div>
   </div>
 
+  <!-- ========== ПОДВАЛ ========== -->
   <footer class="footer">
     <div class="container footer-inner">
       <span class="logo">Interview<span>Hub</span></span>
@@ -249,6 +267,7 @@
   </footer>
 
 
+  <!-- ========== SIDEBAR ПРОФИЛЯ ========== -->
   <div class="profile-backdrop" id="profileBackdrop"></div>
   <aside class="profile-sidebar" id="profileSidebar">
     <div class="sidebar-header">
@@ -259,38 +278,6 @@
       <!-- Контент генерируется через JS -->
     </div>
   </aside>
-
-
-  <div class="modal-overlay" id="reviewOverlay">
-    <div class="modal" id="reviewModal" style="max-width:420px;">
-      <button class="modal-close" id="reviewModalClose">✕</button>
-      <div style="text-align:center;margin-bottom:20px;">
-        <div style="font-size:36px;margin-bottom:8px;">★</div>
-        <h2 style="font-family:var(--font-head);font-size:22px;font-weight:700;">Оставить отзыв</h2>
-        <p id="reviewAboutName" style="color:var(--text-muted);font-size:14px;margin-top:4px;"></p>
-      </div>
-      <div class="star-rating" id="starRating">
-        <button class="star-btn" data-val="1">★</button>
-        <button class="star-btn" data-val="2">★</button>
-        <button class="star-btn" data-val="3">★</button>
-        <button class="star-btn" data-val="4">★</button>
-        <button class="star-btn" data-val="5">★</button>
-      </div>
-      <div class="form-group" style="margin-top:16px;">
-        <label>Комментарий</label>
-        <textarea id="reviewText" placeholder="Расскажи как прошло интервью..." style="min-height:100px;"></textarea>
-      </div>
-      <button class="btn-primary btn-full" id="submitReview">Отправить отзыв</button>
-    </div>
-  </div>
-
-
-  <div class="modal-overlay" id="pubProfileOverlay">
-    <div class="modal pub-profile-modal">
-      <button class="modal-close" onclick="closePublicProfile()">✕</button>
-      <div id="pubProfileBody"></div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
